@@ -6,5 +6,7 @@ require('./lib/shoe')
 require('pg')
 
 get "/" do
+  @brands = Brand.all
+  @stores = Store.all
   erb :index
 end
