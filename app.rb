@@ -18,7 +18,7 @@ post '/add_brand' do
   if @brand.save
     redirect '/'
   else
-    erb(:error)
+    erb :error
   end
 end
 
@@ -28,6 +28,28 @@ post '/add_store' do
   if @store.save
     redirect '/'
   else
-    erb(:error)
+    erb :error
   end
+end
+
+get '/store/:id' do
+  @store = Store.find(params['id'].to_i)
+  erb :store
+end
+
+patch '/edit_store/:id' do
+  @store = Store.find(params['id'].to_i)
+  name = params['name']
+  @store.update(name: name)
+  if @store.update(name: name)
+    erb :store
+  else
+    erb :error
+  end
+end
+
+delete '/delete_store/:id' do
+  @store = Store.find(params['id'].to_i)
+  @store.delete
+  redirect '/'
 end
