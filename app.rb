@@ -35,6 +35,8 @@ end
 
 get '/store/:id' do
   @store = Store.find(params['id'].to_i)
+  @all_brands = Brand.all
+  @brands_available = @all_brands - @store.brands
   erb :store
 end
 
@@ -43,7 +45,7 @@ patch '/edit_store/:id' do
   name = params['name']
   @store.update(name: name)
   if @store.update(name: name)
-    erb :store
+    redirect "/store/#{@store.id}"
   else
     erb :error
   end
@@ -67,4 +69,11 @@ post '/add_store/:id' do
   store = Store.find(params['store-id'].to_i)
   @brand.stores.push(store)
   redirect "brand/#{@brand.id}"
+end
+
+post '/add_brand/:id' do
+  @store = Store.find(params['id'].to_i)
+  brand = Brand.find(params['brand-id'].to_i)
+  @store.brands.push(brand)
+  redirect "store/#{@store.id}"
 end
