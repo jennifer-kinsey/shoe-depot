@@ -1,6 +1,6 @@
 class Brand < ActiveRecord::Base
   has_and_belongs_to_many :stores
-  validates(:name, {:presence => true, uniqueness: true})
+  validates(:name, {:presence => true, uniqueness: true, :length => { :maximum => 100}})
   validates(:price, :presence => true)
   before_save(:titlecase)
   before_save(:monetize)
@@ -22,7 +22,7 @@ end
 
 class Store < ActiveRecord::Base
   has_and_belongs_to_many :brands
-  validates(:name, {:presence => true, uniqueness: true})
+  validates(:name, {:presence => true, uniqueness: true, :length => { :maximum => 100}})
   before_save(:titlecase)
 
 private

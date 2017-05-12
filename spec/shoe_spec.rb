@@ -16,6 +16,10 @@ describe (Brand) do
     shoe2 = Brand.create({:name => "Doc Marten", :price=> nil, formatted_price: nil})
     expect(shoe2.save).to eq(false)
   end
+  it('validates brand name length does not exceed 100 characters') do
+    shoe1 = Brand.create({name: "t" * 101, price: 100, formatted_price: nil})
+    expect(shoe1.save).to eq(false)
+  end
 
   describe('#titlecase') do
     it('ensures the name of the brand is titlecased') do
@@ -53,6 +57,10 @@ describe (Store) do
     store1 = Store.create({name: "WALLY woRLD"})
     store2 = Store.create({name: "WALLY woRLD"})
     expect(store2.save).to eq(false)
+  end
+  it('validates store name length does not exceed 100 characters') do
+    store1 = Store.create({name: "W" * 101})
+    expect(store1.save).to eq(false)
   end
 
   describe('#titlecase') do
