@@ -1,0 +1,18 @@
+<h2>Oh no! Something wrong's afoot.</h2>
+<h3>Here are your missteps:</h3>
+<% if @brand != nil %>
+<ul>
+  <% @brand.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+<% if @store != nil %>
+<ul>
+  <% @store.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<h5><a href="/" >Put your best foot forward and try again</a></h5>
