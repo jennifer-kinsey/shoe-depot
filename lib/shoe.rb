@@ -3,6 +3,7 @@ class Brand < ActiveRecord::Base
   validates(:name, :presence => true)
   validates(:price, :presence => true)
   before_save(:titlecase)
+  before_save(:monetize)
 
 private
   define_method(:titlecase) do
@@ -11,6 +12,10 @@ private
       word.capitalize!
     end
     self.name = words.join(" ")
+  end
+
+  define_method(:monetize) do
+    self.formatted_price = "$" + ("%.2f" % self.price)
   end
 end
 

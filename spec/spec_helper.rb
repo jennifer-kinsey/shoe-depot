@@ -4,6 +4,7 @@ require("pg")
 require("sinatra/activerecord")
 require("shoe")
 require "shoulda-matchers"
+require 'pry'
 
 RSpec.configure do |config|
   config.after(:each) do

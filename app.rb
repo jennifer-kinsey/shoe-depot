@@ -15,7 +15,7 @@ end
 post '/add_brand' do
   name = params['name']
   price = params['price']
-  @brand = Brand.create(name: name, price: price)
+  @brand = Brand.create(name: name, price: price, formatted_price: "")
   if @brand.save
     redirect '/'
   else

@@ -19,6 +19,21 @@ describe (Brand) do
     end
   end
 
+  describe('#monetize') do
+    it('converts an inputted two decimal place number into a currency.') do
+      shoe = Brand.create({:name => "Sanuk", :price=> 20.57})
+      expect(shoe.formatted_price).to eq("$20.57")
+    end
+    it('converts an inputted decimal into a currency even if it has a no or only one decimal place.') do
+      shoe = Brand.create({:name => "Sanuk", :price=> 20.5})
+      expect(shoe.formatted_price).to eq("$20.50")
+    end
+    it('converts an inputted decimal into a currency even if it has too many decimal places.') do
+      shoe = Brand.create({:name => "Sanuk", :price=> 20.57687})
+      expect(shoe.formatted_price).to eq("$20.58")
+    end
+  end
+
 end
 
 
