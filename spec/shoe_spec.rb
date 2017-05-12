@@ -29,4 +29,12 @@ describe (Store) do
     store1 = Store.new({:name => ""})
     expect(store1.save).to eq(false)
   end
+
+  describe('#titlecase') do
+    it('ensures the name of the store is titlecased') do
+      store1 = Store.create({name: "WALLY woRLD"})
+      expect(store1.name).to eq("Wally World")
+    end
+  end
+
 end
