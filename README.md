@@ -1,18 +1,35 @@
-# <!--PROJECT NAME HERE-->
+# SHOE DEPOT
 
-<!--PROJECT DESCRIPTION HERE-->
+Shoe Depot is a web app that allows you the ability to track shoes and shoe stores, essentially. Add shoes and add shoe stores. Then you will be able to set where shoes are sold and/or what stores sell which shoes.
 
 ### Prerequisites
 
 Web browser with ES6 compatibility
 Examples: Chrome, Safari
 
-Ruby <!--VERSION HERE-->
+Ruby
 Bundler
 
 ### Installing
 
-Installation is quick and easy! First you can open this link <!--HEROKU LINK HERE--> to see the webpage in action live online. Or you can clone this repository to your machine, navigate to the file path in your terminal, and run 'app.rb' by typing '$ruby app.rb'. If you chose to clone the repository, after you run 'app.rb' you will need to copy the localhost path into your web browser. The standard localhost for Sinatra is port 4567
+Clone this repo by typing into the terminal:
+```
+$ git clone https://github.com/jennifer-kinsey/shoe-depot.git
+```
+In a new terminal tab:
+
+$ postgres
+Navigate to this project directory in the terminal. Then in a new tab type:
+```
+$ rake db:schema:load
+$ rake db:test:prepare
+```
+
+In the first terminal window type command:
+```
+$ruby app.rb
+```
+Sinatra will now make this project available in your browser by going to localhost:4567.
 
 ## Built With
 
@@ -22,17 +39,17 @@ Installation is quick and easy! First you can open this link <!--HEROKU LINK HER
 * CSS
 * Bootstrap https://getbootstrap.com/
 * ES6
-* Jquery https://jquery.com/
+* ActiveRecord
 
 ## Authors
 
-* <!--YOUR NAME HERE-->
+* Jennifer Kinsey
 
 ## License
 
 MIT License
 
-Copyright (c) <!--YOUR NAME & YEAR HERE-->
+Copyright (c) Jennifer Kinsey
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -51,4 +68,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-

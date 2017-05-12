@@ -1,9 +1,9 @@
-ENV["RACK_ENV"] = "test"
-require("rspec")
-require("pg")
-require("sinatra/activerecord")
-require("shoe")
-require "shoulda-matchers"
+ENV['RACK_ENV'] = 'test'
+require 'rspec'
+require 'pg'
+require 'sinatra/activerecord'
+require 'shoe'
+require 'shoulda-matchers'
 require 'pry'
 require 'capybara'
 
