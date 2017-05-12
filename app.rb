@@ -24,7 +24,7 @@ post '/add_brand' do
 end
 
 post '/add_store' do
-  name = params['name']
+  name = params['store-name']
   @store = Store.create(name: name)
   if @store.save
     redirect '/'
