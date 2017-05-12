@@ -4,6 +4,7 @@ also_reload('lib/**/*.rb')
 require('sinatra/activerecord')
 require('./lib/shoe')
 require('pg')
+require "pry"
 
 get "/" do
   @brands = Brand.all
@@ -56,7 +57,8 @@ end
 
 get '/brand/:id' do
   @brand = Brand.find(params['id'].to_i)
-  @stores = Store.all
+  @all_stores = Store.all
+  @stores_available = @all_stores - @brand.stores
   erb :brand
 end
 

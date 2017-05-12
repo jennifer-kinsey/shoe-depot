@@ -13,11 +13,19 @@
 <% end %>
 
 <h3>Add a store where shoe brand is sold:</h3>
-<form action="/add_store/<%=@brand.id%>" method="post">
-  <select name="store-id">
-    <% @stores.each do |store| %>
-      <option value="<%= store.id %>"><%= store.name%></option>
-    <% end %>
-  </select>
-  <button type="submit" class="btn btn-success">Add</button>
-</form>
+<% if @all_stores = nil %>
+  <p>It is a terrible shoe-storeless world.</p>
+<% elsif @stores_available.any? %>
+  <form action="/add_store/<%=@brand.id%>" method="post">
+    <select name="store-id">
+      <% @stores_available.each do |store| %>
+        <option value="<%= store.id %>"><%= store.name%></option>
+      <% end %>
+    </select>
+    <button type="submit" class="btn btn-success">Add</button>
+  </form>
+<% else %>
+  <p>This shoe is already sold in all teh stores!</p>
+<% end %>
+
+<a href="/">home</a>
