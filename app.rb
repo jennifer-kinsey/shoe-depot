@@ -53,3 +53,16 @@ delete '/delete_store/:id' do
   @store.delete
   redirect '/'
 end
+
+get '/brand/:id' do
+  @brand = Brand.find(params['id'].to_i)
+  @stores = Store.all
+  erb :brand
+end
+
+post '/add_store/:id' do
+  @brand = Brand.find(params['id'].to_i)
+  store = Store.find(params['store-id'].to_i)
+  @brand.stores.push(store)
+  redirect "brand/#{@brand.id}"
+end

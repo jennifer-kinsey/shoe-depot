@@ -1,0 +1,23 @@
+<h2><%= @brand.name %> info</h2>
+
+<h3>Price point: <%=@brand.price%></h3>
+
+<h3>Here are the stores that sell <%= @brand.name %>:</h3>
+
+<% if @brand.stores.any? %>
+  <% @brand.stores.each do |store| %>
+    <li><%= store.name %></li>
+  <% end %>
+<% else %>
+  <p>You cannot buy those shoes anywhere.</p>
+<% end %>
+
+<h3>Add a store where shoe brand is sold:</h3>
+<form action="/add_store/<%=@brand.id%>" method="post">
+  <select name="store-id">
+    <% @stores.each do |store| %>
+      <option value="<%= store.id %>"><%= store.name%></option>
+    <% end %>
+  </select>
+  <button type="submit" class="btn btn-success">Add</button>
+</form>
