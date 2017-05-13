@@ -4,7 +4,6 @@ also_reload 'lib/**/*.rb'
 require 'sinatra/activerecord'
 require './lib/shoe'
 require 'pg'
-require 'pry'
 
 get '/' do
   @brands = Brand.all

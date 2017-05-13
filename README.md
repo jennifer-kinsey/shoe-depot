@@ -17,8 +17,9 @@ Clone this repo by typing into the terminal:
 $ git clone https://github.com/jennifer-kinsey/shoe-depot.git
 ```
 In a new terminal tab:
-
+```
 $ postgres
+```
 Navigate to this project directory in the terminal. Then in a new tab type:
 ```
 $ rake db:schema:load

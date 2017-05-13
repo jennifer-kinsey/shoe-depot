@@ -4,7 +4,6 @@ require 'pg'
 require 'sinatra/activerecord'
 require 'shoe'
 require 'shoulda-matchers'
-require 'pry'
 require 'capybara'
 
 RSpec.configure do |config|
