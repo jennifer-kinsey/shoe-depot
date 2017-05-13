@@ -2,6 +2,8 @@
 
 Shoe Depot is a web app that allows you the ability to track shoes and shoe stores, essentially. Add shoes and add shoe stores. Then you will be able to set where shoes are sold and/or what stores sell which shoes.
 
+![Image of Homepage Screenshot](public/ss.png)
+
 ### Prerequisites
 
 Web browser with ES6 compatibility
